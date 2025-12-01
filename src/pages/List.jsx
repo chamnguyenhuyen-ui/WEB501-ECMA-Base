@@ -1,8 +1,13 @@
+import toast from 'react-hot-toast'
+
 function List() {
+  const handleDelete = () => {
+    toast.success('Delete successfull')
+  }
   return (
     <div className="p-6">
       <h1 className="text-2xl font-semibold mb-6">Danh sách</h1>
-
+      <button onClick={handleDelete}>Delete</button>
       <div className="overflow-x-auto">
         <table className="w-full border border-gray-300 rounded-lg">
           <thead className="bg-gray-100">
@@ -46,7 +51,7 @@ function List() {
         </table>
       </div>
     </div>
-  );
+  )
 }
 
-export default List;
+export default List
