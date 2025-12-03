@@ -1,0 +1,72 @@
+{
+  "tours": [
+    {
+      "name": "Lào Cai",
+      "price": 2500000,
+      "image": "https://i0.wp.com/www.somewheretogetlost.com/wp-content/uploads/2020/06/krisztian-tabori-9r2yeRccyls-unsplash-scaled.jpg?fit=1920%2C1279&ssl=1",
+      "category": "Tour nội địa",
+      "active": true,
+      "id": 1
+    },
+    {
+      "name": "Quảng Ninh",
+      "price": 1800000,
+      "image": "https://pld.net.vn/uploads/images/2023/09/18/vinh-ha-long-cat-ba-tro-thanh-di-san-the-gioi-lien-tinh-thanh-pho-dau-tien-cua-viet-nam-pld-1695048167.jpg",
+      "category": "Tour nội địa",
+      "active": true,
+      "id": 2
+    },
+    {
+      "name": "Đà Lạt",
+      "price": 3200000,
+      "image": "https://vgbc.vn/wp-content/uploads/2024/06/du-lich-Da-Lat-ivivu.jpg",
+      "category": "Tour nội địa",
+      "active": true,
+      "id": 3
+    },
+    {
+      "name": "Hà Nội",
+      "price": "2000000",
+      "description": "Hà Nội – một thành phố đa sắc màu, nơi tình cảm và lịch sử đan xen nhau tạo nên một nét đẹp đặc trưng không thể nào tìm thấy ở bất cứ nơi nào khác.",
+      "image": "https://dntt.mediacdn.vn/197608888129458176/2022/9/21/ho-guom-du-lich-ha-noi-ivivu-16637590508811726461079.jpg",
+      "available": "25",
+      "duration": "2 ngày 1 đêm",
+      "category": "Tour noi dia",
+      "active": true,
+      "id": 4,
+      "destination": "Hồ Gươm"
+    }
+  ],
+  "destinations": [
+    {
+      "id": 1,
+      "name": "Sapa",
+      "icon": "🏔️",
+      "description": "Thiên đường núi rừng Tây Bắc"
+    },
+    {
+      "id": 2,
+      "name": "Hạ Long",
+      "icon": "🌊",
+      "description": "Kỳ quan thiên nhiên thế giới"
+    },
+    {
+      "id": 3,
+      "name": "Đà Lạt",
+      "icon": "🌺",
+      "description": "Thành phố ngàn hoa"
+    }
+  ],
+  "users": [
+    {
+      "email": "chamnguyenhuyen@gmail.com",
+      "password": "$2a$10$LMQVSx/CizrQRXq34OVl7.DMKtiTIdmmqfWiuRBvcHYZdjYddpo72",
+      "id": 1
+    },
+    {
+      "email": "chamnguyenhuyen1@gmail.com",
+      "password": "$2a$10$aoA5dbTCi6eic7mRMiFnZOEfpKPsRtIna0.wofCdpNiCjusCGer3O",
+      "id": 2
+    }
+  ]
+}
