@@ -1,63 +1,99 @@
 import { useState } from 'react'
 import { toast } from 'react-hot-toast'
 import axios from 'axios'
+import { Link, useNavigate } from 'react-router-dom' // Import Link và useNavigate
 
 function RegisterPage() {
   const [email, setEmail] = useState('')
   const [password, setPassword] = useState('')
+  
+  const navigate = useNavigate() // Khởi tạo hook chuyển hướng
 
-  // handleChange
   const handleSubmit = async event => {
     event.preventDefault()
+
+    if (!email || !password) {
+      toast.error('Vui lòng điền đầy đủ Email và Mật khẩu.')
+      return
+    }
+
     try {
       await axios.post('http://localhost:3000/register', {
-        email, // es6
+        email, 
         password,
       })
-      toast.success('them thanh cong')
+      toast.success('Đăng ký thành công! Đang chuyển đến trang Đăng Nhập...')
+      
+      // Chuyển hướng người dùng sang trang Đăng Nhập sau khi đăng ký thành công
+      navigate('/login') 
+
     } catch (error) {
-      toast.error(error.message)
+      const errorMessage = error.response?.data?.message || error.message
+      toast.error(`Đăng ký thất bại: ${errorMessage}`)
     }
   }
+
   return (
-    <div className="p-6">
-      <h1 className="text-2xl font-semibold mb-6">Register mới</h1>
+    // ➡️ ĐÃ SỬA: Bỏ items-center và dùng mt-20 để đẩy form lên
+    <div className="flex justify-center mt-20 bg-gray-50 min-h-screen">
+      <div className="w-full max-w-md p-8 space-y-8 bg-white rounded-xl shadow-2xl h-fit">
+        <h1 className="text-3xl font-extrabold text-center text-gray-900">
+          📝 Đăng Ký Tài Khoản
+        </h1>
 
-      <form className="space-y-6" onSubmit={handleSubmit}>
-        {/* Text input */}
-        <div>
-          <label htmlFor="text" className="block font-medium mb-1">
-            Email
-          </label>
-          <input
-            value={email}
-            onChange={event => setEmail(event.target.value)}
-            type="email"
-            id="text"
-            className="w-full border rounded-lg px-3 py-2 focus:outline-none focus:ring-2 focus:ring-blue-500"
-          />
-        </div>
-        <div>
-          <label htmlFor="text" className="block font-medium mb-1">
-            password
-          </label>
-          <input
-            value={password}
-            onChange={event => setPassword(event.target.value)}
-            type="password"
-            id="text"
-            className="w-full border rounded-lg px-3 py-2 focus:outline-none focus:ring-2 focus:ring-blue-500"
-          />
-        </div>
+        <form className="mt-8 space-y-6" onSubmit={handleSubmit}>
 
-        {/* Submit button */}
-        <button
-          type="submit"
-          className="px-5 py-2 bg-blue-600 text-white rounded-lg hover:bg-blue-700 transition"
-        >
-          Submit
-        </button>
-      </form>
+          {/* Email */}
+          <div>
+            <label htmlFor="email" className="block text-sm font-medium text-gray-700 mb-1">
+              Email
+            </label>
+            <input
+              value={email}
+              onChange={event => setEmail(event.target.value)}
+              type="email"
+              id="email"
+              placeholder="nhap@email.com"
+              required 
+              className="w-full border border-gray-300 rounded-lg px-4 py-2.5 focus:outline-none focus:ring-2 focus:ring-green-500 transition duration-150"
+            />
+          </div>
+
+          {/* Mật khẩu */}
+          <div>
+            <label htmlFor="password" className="block text-sm font-medium text-gray-700 mb-1">
+              Mật khẩu
+            </label>
+            <input
+              value={password}
+              onChange={event => setPassword(event.target.value)}
+              type="password"
+              id="password"
+              placeholder="********"
+              required 
+              className="w-full border border-gray-300 rounded-lg px-4 py-2.5 focus:outline-none focus:ring-2 focus:ring-green-500 transition duration-150"
+            />
+          </div>
+
+          {/* Nút Đăng Ký */}
+          <button
+            type="submit"
+            className="w-full flex justify-center py-2.5 px-4 border border-transparent rounded-lg shadow-sm text-lg font-medium text-white bg-green-600 hover:bg-green-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-green-500 transition duration-200"
+          >
+            Đăng Ký
+          </button>
+        </form>
+        
+        {/* Liên kết Đăng Nhập */}
+        <div className="text-center pt-4">
+          <p className="text-sm text-gray-600">
+            Đã có tài khoản?{' '}
+            <Link to="/login" className="font-medium text-blue-600 hover:text-blue-500">
+              Đăng nhập
+            </Link>
+          </p>
+        </div>
+      </div>
     </div>
   )
 }

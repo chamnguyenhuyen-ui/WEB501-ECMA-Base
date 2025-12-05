@@ -67,6 +67,11 @@
       "email": "chamnguyenhuyen1@gmail.com",
       "password": "$2a$10$aoA5dbTCi6eic7mRMiFnZOEfpKPsRtIna0.wofCdpNiCjusCGer3O",
       "id": 2
+    },
+    {
+      "email": "admin@gmail.com",
+      "password": "$2a$10$o3lBVR5sbipX3H60n490Ke.KgL65vPJRs4F.idR2RdBna3jqaEmOa",
+      "id": 3
     }
   ]
 }
